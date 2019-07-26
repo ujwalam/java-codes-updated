@@ -1,0 +1,74 @@
+package com.visa.training.web;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+@WebServlet({"/addBooks","/addCars","/addBikes"})
+public class BooksServlet extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String uri = request.getRequestURI();
+		HttpSession session = request.getSession();
+		if(uri.endsWith("addBooks")) {
+			String[] sbooks = request.getParameterValues("books");
+			session.setAttribute("sbooks", sbooks);
+			RequestDispatcher rd = request.getRequestDispatcher("cars.html");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("addCars")) {
+			String[] scars = request.getParameterValues("cars");
+			session.setAttribute("scars", scars);
+			RequestDispatcher rd = request.getRequestDispatcher("bikes.html");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("addBikes")) {
+			String[] sbikes = request.getParameterValues("bikes");
+			String[] scars = (String[]) session.getAttribute("scars");
+			
+			String[] sbooks = (String[]) session.getAttribute("sbooks");
+			request.getRequestDispatcher("cart.jsp").forward(request, response);
+/*			PrintWriter out = response.getWriter();
+			out.println("<html><body>");
+			out.println("<h4>Selected Books</h4>");
+			out.println("<ul>");
+			System.out.println(sbooks);
+			Stream.of(sbooks).map(s->"<li>"+s+"</li>").forEach(out::println);
+			out.println("</ul>");
+//			PrintWriter out = response.getWriter();
+			out.println("<html><body>");
+			out.println("<h4>Selected Cars</h4>");
+			out.println("<ul>");
+			Stream.of(scars).map(s->"<li>"+s+"</li>").forEach(out::println);
+			out.println("</ul>");
+//			PrintWriter out = response.getWriter();
+			out.println("<html><body>");
+			out.println("<h4>Selected Bikes</h4>");
+			out.println("<ul>");
+			Stream.of(sbikes).map(s->"<li>"+s+"</li>").forEach(out::println);
+			out.println("</ul>");
+			out.println("</body></html>");*/
+			
+		}
+//		session.invalidate();
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

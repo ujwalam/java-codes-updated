@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+</head>
+<body>
+Number1<input name=n1 > <br>
+Number2 <input name=n2><br>
+<input name=op value="+" type=submit>
+<input name=op value="-" type=submit>
+<input name=op value="*" type=submit>
+<input name=op value="/" type=submit>
+<a >Click here for invoking controller</a>
+</body>
+</html>

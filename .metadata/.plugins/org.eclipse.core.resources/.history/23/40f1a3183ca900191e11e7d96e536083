@@ -1,0 +1,23 @@
+package com.visa.training.jpa.app;
+
+import com.visa.training.jpa.domain.dal.JpaProductDAO;
+import com.visa.training.jpa.domain.Product;
+
+public class ProductJpaApp {
+
+    public static void main(String[] args) {
+        JpaProductDAO dao = new JpaProductDAO();
+        Product test = new Product("hibernate", 9999, 1000);
+        Product saved = dao.save(test);
+        System.out.println(saved);
+        // to test find by id
+        Product fromDB = dao.findById(saved.getId());
+        System.out.println("FromDB : "+fromDB);
+        
+        
+        System.exit(0);
+        
+
+    }
+
+}

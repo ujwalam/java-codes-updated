@@ -1,0 +1,11 @@
+package com.visa.training.bootproject.testclient;
+
+import java.util.Scanner;
+
+public class ProductRemoteClientApp {
+	
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+	}
+
+}

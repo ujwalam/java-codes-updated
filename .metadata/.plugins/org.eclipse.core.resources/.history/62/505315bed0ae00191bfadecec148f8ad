@@ -1,0 +1,89 @@
+package com.visa.training.TestProject.domain;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+//import org.hibernate.annotations.GeneratorType;
+
+@Entity
+@Table(name = "chapter")
+public class Chapter {
+
+	@Id
+	@Column(name = "chapter_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int chapter_id;
+	@Column(name = "name")
+	String name;
+	@Column(name = "indexid")
+	int indexid;
+	@Column(name = "numpages")
+	int numpages;
+	
+	@ManyToOne
+	@JoinColumn(name = "id")
+	Book b;
+	
+	public Chapter() {
+		
+	}
+
+	public Chapter(String name, int indexid, int numpages) {
+		super();
+		this.name = name;
+		this.indexid = indexid;
+		this.numpages = numpages;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getIndexid() {
+		return indexid;
+	}
+
+	public void setIndexid(int indexid) {
+		this.indexid = indexid;
+	}
+
+	public int getNumpages() {
+		return numpages;
+	}
+
+	public void setNumpages(int numpages) {
+		this.numpages = numpages;
+	}
+
+	@Override
+	public String toString() {
+		return "Chapter [chapter_id=" + chapter_id + ", name=" + name + ", indexid=" + indexid + ", numpages="
+				+ numpages + ", b=" + b + "]";
+	}
+
+	public int getChapter_id() {
+		return chapter_id;
+	}
+
+	public void setChapter_id(int chapter_id) {
+		this.chapter_id = chapter_id;
+	}
+
+	
+	
+	
+	
+}

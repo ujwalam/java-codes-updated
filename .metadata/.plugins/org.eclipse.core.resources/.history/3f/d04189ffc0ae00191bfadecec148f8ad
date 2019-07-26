@@ -1,0 +1,16 @@
+package com.visa.training.TestProject.service;
+
+import java.util.List;
+
+import com.visa.training.TestProject.domain.Book;
+
+
+public interface BookService {
+	
+	public int addNewBook(Book b);
+	public Book findById(int id);
+	public List<Book> findAll();
+	public void deleteBook(int id);
+	public void updateBook(Book b);
+
+}

@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	String[] selectedCars = (String[]) session.getAttribute("selectedCars");
+	String[] selectedBikes = (String[]) session.getAttribute("selectedBikes");
+	String[] selectedBooks = request.getParameterValues("bikes");
+%>
+<h4>Selected books</h4>
+<ul>
+<%for(String aBook : selectedBooks)
+{
+%>
+<li><%=aBook %> </li>
+<%
+}
+%>
+</ul>
+<h4>Selected bikes</h4>
+<ul>
+<%for(String aBike : selectedBikes)
+{
+%>
+<li><%=aBike %> </li>
+<%
+}
+%>
+</ul>
+<h4>Selected cars</h4>
+<ul>
+<%for(String aCar : selectedCars)
+{
+%>
+<li><%=aCar %> </li>
+<%
+}
+%>
+</ul>
+</body>
+</html>

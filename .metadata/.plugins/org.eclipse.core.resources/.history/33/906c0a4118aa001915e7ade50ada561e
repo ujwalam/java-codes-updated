@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product page</title>
+</head>
+<body>
+<fieldset>
+<form action="addProduct">
+Name<input name="name"><br>
+Price<input name = "price"><br>
+Qoh<input name = "qoh"><br>
+<input type="submit" name="Add">
+
+</form>
+</fieldset>
+
+<table>
+<tr>
+<th>Id</th><th>Name</th><th>Price</th><th>QOH</th><th>Action</th>
+</tr>
+</table>
+
+</body>
+</html>

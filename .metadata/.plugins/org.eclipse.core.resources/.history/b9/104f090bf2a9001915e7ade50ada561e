@@ -1,0 +1,12 @@
+package com.visa.training.dal;
+
+import java.util.Map;
+
+import com.visa.training.domain.Product;
+
+public class ProductDAOMemoryImpl implements ProductDAO{
+	int idSequence;
+	Map<Integer, Product> data = new HashMap();
+	
+
+}

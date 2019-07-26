@@ -1,0 +1,118 @@
+package com.visa.training.jpa.domain;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
+
+
+@Entity
+@Table(name = "customer")
+public class Customer {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int id;
+	String firstname;
+	String middlename;
+	String lastname;
+	java.util.Date datofjoin;
+	
+	
+	@ManyToMany(cascade = CascadeType.PERSIST)
+	@JoinTable(name="customer_address",joinColumns=@JoinColumn(name="cust_id"),inverseJoinColumns=@JoinColumn(name="address_id"))
+	List<Address> address = new ArrayList<Address>();
+	
+//	@JoinColumn(name = "cust_id")
+	@OneToMany(mappedBy = "customer")
+	List<Account> accounts = new ArrayList<Account>();
+	
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
+
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
+
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Customer(String firstname, String middlename, String lastname, java.util.Date date) {
+		super();
+		this.firstname = firstname;
+		this.middlename = middlename;
+		this.lastname = lastname;
+		this.datofjoin = date;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getMiddlename() {
+		return middlename;
+	}
+
+	public void setMiddlename(String middlename) {
+		this.middlename = middlename;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public java.util.Date getDatofjoin() {
+		return datofjoin;
+	}
+
+	public void setDatofjoin(java.sql.Date datofjoin) {
+		this.datofjoin = datofjoin;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", firstname=" + firstname + ", middlename=" + middlename + ", lastname="
+				+ lastname + ", datofjoin=" + datofjoin + "]";
+	}
+	
+
+}

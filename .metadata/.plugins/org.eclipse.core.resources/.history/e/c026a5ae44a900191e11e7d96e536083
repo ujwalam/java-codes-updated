@@ -1,0 +1,10 @@
+package com.visa.training.jpa.domain;
+
+public class SavingsAccount extends Account {
+	
+	public SavingsAccount(float balance) {
+		super(balance);
+		// TODO Auto-generated constructor stub
+	}
+
+}

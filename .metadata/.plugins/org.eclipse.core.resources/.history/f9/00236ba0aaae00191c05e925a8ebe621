@@ -1,0 +1,33 @@
+package com.visa.training.bootproject.web;
+
+import static org.junit.Assert.*;
+
+import javax.swing.Spring;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.visa.training.bootproject.service.ProductService;
+
+
+@RunWith(SpringRunner.class)
+@WebMvcTest(value = {ProductRestController.class})
+public class ProductRestControllerTest {
+
+	@Autowired
+	MockMvc mvc;
+	
+	@MockBean
+	ProductService service;
+	
+	@Test
+	public void testGetById() {
+		
+	}
+
+}

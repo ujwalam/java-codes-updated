@@ -1,0 +1,23 @@
+package com.visa.training.bootproject.testclient;
+
+import java.util.Scanner;
+
+public class ProductRemoteClientApp {
+	
+	public static void main(String[] args) {
+//		Scanner kb = new Scanner(System.in);
+		createProductWithUI();
+	}
+
+	private static void createProductWithUI() {
+		// TODO Auto-generated method stub
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Enter a name: ");
+		String name= kb.nextLine();
+		System.out.println("Enter a price: ");
+		Float price= Float.parseFloat(kb.nextLine());
+		System.out.println("Enter a qoh: ");
+		int qoh= Integer.parseInt(kb.nextLine());
+	}
+
+}

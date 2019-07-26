@@ -1,0 +1,29 @@
+package com.visa.training.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class ShoppingController {
+
+	@RequestMapping("/addBooks")
+	public ModelAndView shopBooks(@RequestParam("books")String[] b) {
+		
+		
+	}
+	
+	@RequestMapping("/addCars")
+	public ModelAndView shopCars(@RequestParam("cars")String[] b) {
+		
+		
+	}
+	
+	@RequestMapping("/addBikes")
+	public ModelAndView shopBikes(@RequestParam("bikes")String[] b) {
+		
+		
+	}
+	
+}

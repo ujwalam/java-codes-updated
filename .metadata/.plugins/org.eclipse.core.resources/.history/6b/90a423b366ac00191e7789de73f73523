@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SpringMVC</title>
+</head>
+<body>
+
+<a href="helloPAGE.html">Hello World</a><br>
+<a href="calculator.html">Calculator</a><br>
+<a href="calculatorview.jsp">Calculator jsp app</a>
+
+</body>
+</html>

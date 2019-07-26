@@ -1,0 +1,101 @@
+package com.visa.training.TestProject.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "chapter")
+public class Chapter {
+
+	@Id 
+	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int id;
+	@Column(name="name")
+	String name;
+	@Column(name="index")
+	int index;
+	@Column(name="numpages")
+	int numpages;
+	
+	
+	public Chapter(String name, int index, int numpages) {
+		super();
+		this.name = name;
+		this.index = index;
+		this.numpages = numpages;
+	}
+	
+	public Chapter() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+
+	public int getIndex() {
+		return index;
+	}
+
+
+
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
+
+
+
+	public int getNumpages() {
+		return numpages;
+	}
+
+
+
+
+	public void setNumpages(int numpages) {
+		this.numpages = numpages;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Chapter [id=" + id + ", name=" + name + ", index=" + index + ", numpages=" + numpages + "]";
+	}
+	
+	
+	
+}

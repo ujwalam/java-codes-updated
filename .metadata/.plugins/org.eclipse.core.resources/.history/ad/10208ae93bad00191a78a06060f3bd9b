@@ -1,0 +1,23 @@
+package com.visa.training.bootproject.web;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.visa.training.bootproject.domain.Product;
+import com.visa.training.bootproject.service.ProductService;
+
+@RestController
+public class ProductRestController {
+	
+	@Autowired
+	ProductService service;
+	
+	public List<Product> getAll(){
+		return service.findAll();
+	}
+	
+	
+
+}

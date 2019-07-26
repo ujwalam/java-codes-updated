@@ -1,0 +1,30 @@
+package com.visa.training.bootproject.web;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.visa.training.bootproject.domain.Product;
+import com.visa.training.bootproject.service.ProductService;
+
+@RestController
+public class ProductRestController {
+	
+	@Autowired
+	ProductService service;
+	
+	@RequestMapping(value = "/api/products",method = RequestMethod.GET)
+	public List<Product> getAll(){
+		return service.findAll();
+	}
+	
+	public Product getById(int id) {
+		return service.findById(id);
+	}
+	
+	
+
+}

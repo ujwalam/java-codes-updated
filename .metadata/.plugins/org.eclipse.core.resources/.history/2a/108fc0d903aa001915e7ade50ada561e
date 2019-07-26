@@ -1,0 +1,18 @@
+package com.via.training;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.visa.training.dal.ProductDAO;
+import com.visa.training.dal.ProductDAOMemoryImpl;
+
+@Configuration
+public class ProductAppConfiguration {
+	
+	@Bean
+	public ProductDAO dao() {
+		
+		return new ProductDAOMemoryImpl();
+	}
+
+}
